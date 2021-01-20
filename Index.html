@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>CRUD OPERATION WITH POSTGRES</title>
+</head>
+<body>
+    <center>
+        <h1>HOW TO CRATE</h1>
+        <h3>DJANGO WEB TUT</h3>
+        <hr/>
+        <a href="{% url 'Insertemp' %}">Create New Employee</a>
+        <table border="1">
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Occupation</th>
+                <th>Salary</th>
+                <th>Gender</th>
+            </tr>
+            {% for result in data%}
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.name}}</td>
+                <td>{{result.email}}</td>
+                <td>{{result.occupation}}</td>
+                <td>{{result.salary}}</td>
+                <td>{{result.gender}}</td>
+                <td><a href="Edit/{{result.id}}">Edit</a></td>
+                <td><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure you want delete the record ?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
